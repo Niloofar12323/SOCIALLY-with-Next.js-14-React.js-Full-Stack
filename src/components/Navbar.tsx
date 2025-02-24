@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import DesktopNavbar from "./DesktopNavbar ";
+import MobileNavbar from "./MobileNavbar";
 
 
 
@@ -17,7 +18,7 @@ import DesktopNavbar from "./DesktopNavbar ";
           </div>
 
           <DesktopNavbar/>
-          {/* <MobileNavbar /> */}
+          <MobileNavbar/>
         </div>
       </div>
     </nav>
