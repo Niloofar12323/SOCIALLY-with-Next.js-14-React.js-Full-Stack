@@ -14,8 +14,29 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  nam   String ?
-}
+ id String @id @default(cuid())
+ email String  @unique
+ username  String  @unique
+ clerkId String @unique
+ name String?
+ bio String?
+ image String?
+ location String?
+ website String?
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+
+ posts Post[]
+ comments Comment[]
+ likes Like[]
+
+ followers Follows[] @relation("following")
+ following Follows[] @relation("follower") 
+
+ notifications Notification[] @relation(("userNotifications"))
+ notificationsCreated Notification[] @relation(("notificationCreator"))
+ }
+
+ model Post {
+  id   String @id @default(cuid())
+ }
